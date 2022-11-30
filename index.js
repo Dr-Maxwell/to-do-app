@@ -6,8 +6,11 @@ todoForm.addEventListener("submit", addTodo);
 const todos = [];
 function addTodo(event) {
   event.preventDefault();
+  let text = event.target[0].value;
+  let result = text.trim();
+  if (result.length <= 0) return;
   const todoData = {
-    text: event.target[0].value,
+    text: result,
     completed: false,
   };
   todos.push(todoData);
